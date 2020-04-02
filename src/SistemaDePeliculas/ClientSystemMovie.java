@@ -26,10 +26,16 @@ public class ClientSystemMovie {
 		// carga datos de usuarios
 		homer.setName("Homero");
 		homer.setAge(45);
+		homer.addGenres("Comedia");
+		System.out.println(homer.GetfavoriteGenres());
 		marge.setName("Marge");
+		marge.setAge(40);
 		lisa.setName("Lisa");
+		lisa.setAge(10);
 		bart.setName("Bart");
+		bart.setAge(8);
 		maggie.setName("Maggie");
+		maggie.setAge(2);
 		simpsonBrothers.setName("Hermanos Simpson");
 		simpsonFamily.setName("Familia Simpson");
 
@@ -133,44 +139,41 @@ public class ClientSystemMovie {
 		monsterIncMovie.addCategory("Infantil");
 		monsterIncMovie.addCategory("Aventura");
 		monsterIncMovie.addCategory("Acción");
-
+		
 		//carga agrega usuarios a un grupo
 		simpsonBrothers.addToGroup(lisa.getUser());
 		simpsonBrothers.addToGroup(maggie.getUser());	
 		simpsonBrothers.addToGroup(bart.getUser());
 		simpsonFamily.addToGroup(marge.getUser());
+		simpsonFamily.addToGroup(homer.getUser());
 		simpsonFamily.addToGroup(simpsonBrothers.getUser());
-		simpsonFamily.addToGroup(lisa.getUser());
-		simpsonFamily.addToGroup(maggie.getUser());	
-		simpsonFamily.addToGroup(bart.getUser());
-
 		System.out.println(simpsonFamily.toString());
-//		System.out.println(homer.getGenres());
-//		System.out.println(homer.toString());
-
+		
 //		películas vistas por los usuarios y grupos de usuarios
-//		marge.watchMovie(theIncrediblesMovie);
-//		lisa.watchMovie(theIncrediblesMovie);
-//		bart.watchMovie(theIncrediblesMovie);
-//		maggie.watchMovie(theIncredibles2Movie);
-//		maggie.watchMovie(toyStoryMovie);
-//		simpsonFamily.watchMovie(toyStoryMovie);
-//		System.out.println(toyStoryMovie.toString());
-//		simpsonFamily.seenMovies();
-//		System.out.println(movieSystem.toString());
+		marge.watchMovie(theIncrediblesMovie);
+		lisa.watchMovie(theIncrediblesMovie);
+		bart.watchMovie(theIncrediblesMovie);
+		bart.watchMovie(toyStoryMovie);
+		maggie.watchMovie(theIncredibles2Movie);
+		maggie.watchMovie(toyStoryMovie);
+		simpsonFamily.watchMovie(toyStoryMovie);
+		simpsonBrothers.watchMovie(toyStoryMovie);
+		simpsonBrothers.seenMovies();
+		simpsonFamily.seenMovies();
+		lisa.seenMovies();
+		maggie.seenMovies();
 
-		//puntuaciones dadas por los usuarios	
-//		simpsonBrothers.valueMovie(theIncrediblesMovie, 5);
-//		bart.valueMovie(theIncrediblesMovie, 2);
-//		homer.valueMovie(theIncrediblesMovie, 4);
-//		marge.valueMovie(theIncrediblesMovie,2);
-//		maggie.valueMovie(toyStoryMovie, 1);
-//		simpsonBrothers.watchMovie(toyStoryMovie);
-//		simpsonBrothers.seenMovies();
-//		maggie.seenMovies();
+//		puntuaciones dadas por los usuarios	
+		simpsonFamily.valueMovie(toyStoryMovie, 4);
+		simpsonBrothers.valueMovie(theIncrediblesMovie, 5);
+		bart.valueMovie(theIncrediblesMovie, 2);
+		homer.valueMovie(theIncrediblesMovie, 4);
+		marge.valueMovie(theIncrediblesMovie, 2);
+		maggie.valueMovie(toyStoryMovie, 1);
+		bart.valueMovie(toyStoryMovie, 4);
 		
 		//puntuaciones obtenidas por película
-//		//theIncrediblesMovie.printValuations();
+		theIncrediblesMovie.printValuations();
 //		
 //		//datos de los usuarios registrados
 //		System.out.println(homer.toString());

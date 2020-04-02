@@ -15,8 +15,8 @@ import java.util.List;
 public abstract class UserComponent implements Comparable<UserComponent> {
 	protected String name;
 	protected int age;
-	protected List<Movie> seenMovies;
-	protected List<String> genres;
+	protected ArrayList<Movie> seenMovies;
+	protected ArrayList<String> genres;
 	
 	public UserComponent() {
 		super();
@@ -26,11 +26,10 @@ public abstract class UserComponent implements Comparable<UserComponent> {
 	}
 
 	protected abstract ArrayList<UserComponent> getUser();
-
-	public boolean isGroup() {
-		return true;
-	}
-
+	
+	protected abstract ArrayList<String> GetfavoriteGenres();
+	protected abstract void addGenres(String gender);
+	
 	public int compareTo(UserComponent user) {
 		if (this.getName().equals(user.getName())) {
 			return 0;
@@ -65,14 +64,6 @@ public abstract class UserComponent implements Comparable<UserComponent> {
 
 	public void setAge(int age) {
 		this.age = age;
-	}
-
-	public List<String> getGenres() {
-		return genres;
-	}
-
-	public void setGenres(List<String> genres) {
-		this.genres = genres;
 	}
 
 	public void setSeenMovies(List<Movie> seenMovies) {

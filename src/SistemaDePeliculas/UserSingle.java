@@ -16,14 +16,27 @@ public class UserSingle extends UserComponent {
 		return user;
 	}
 
+	public void addGenres(String genres) {
+		for (int i = 0; i <= super.genres.size(); i++) {
+			if(!this.genres.contains(genres)) {
+				this.genres.add(genres);
+				System.out.println("El género "+genres+" fue agregado a la lista de "+ this.getName());
+				break;
+			} else {
+				System.out.println("El género "+genres+" ya existe en la lista de "+this.getName());
+			}
+		}
+	}
+	
 	@Override
-	 public boolean isGroup() {
-		 return false;
+	 public ArrayList<String> GetfavoriteGenres(){
+		 return super.genres;
 	 }
+	
 	@Override
 	public String toString() {
 		return "Nombre: "+super.getName()+"\nEdad: " + super.getAge() + 
-				"\nGéneros preferidos: " + super.getGenres() + 
+				"\nGéneros preferidos: " + this.GetfavoriteGenres() + 
 				"\nPelículas vistas: " + super.getSeenMovies();
 	}
 

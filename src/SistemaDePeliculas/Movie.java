@@ -66,7 +66,7 @@ public class Movie implements Iterator<Object> {
 		while (iteradorValuations.hasNext()){
 			String name = iteradorValuations.next();
 			int valuation = valuations.get(name);
-			System.out.println("El usuario "+name+" valuo con: "+valuation);
+			System.out.print("\nEl usuario "+name+" valuo con "+valuation+" la pelicula "+this.getTittle());
 		}
 	}
 	
