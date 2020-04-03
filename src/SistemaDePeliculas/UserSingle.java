@@ -1,6 +1,7 @@
 package SistemaDePeliculas;
 
 import java.util.ArrayList;
+import java.util.Set;
 
 public class UserSingle extends UserComponent {
 	private int age;
@@ -17,9 +18,13 @@ public class UserSingle extends UserComponent {
 		return user;
 	}
 	
+	@Override
+	public void watchMovie(Movie movie) {
+		this.seenMovies.add(movie);
+	}
 	
 	@Override
-	public ArrayList<String> getFavoriteGenres() {
+	public Set<String> getFavoriteGenres() {
 //		System.out.println("Los géneros favoritos de "+this.getName()+" son ");
 		return this.genres;
 	}

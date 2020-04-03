@@ -46,14 +46,19 @@ public class UserComposite extends UserComponent {
 			}
 		}
 	}
-
+	@Override
+	public void watchMovie(Movie movie) {
+		for (UserComponent user : this.groupUsers) {
+			ArrayList<Movie> seenMovies = new ArrayList<Movie>();
+			seenMovies = (ArrayList<Movie>) user.getSeenMovies();
+			seenMovies.add(movie);
+		}
+		this.seenMovies.add(movie);
+	}
+	
 	@Override
 	public ArrayList<UserComponent> getUser() {
 		return this.groupUsers;
-	}
-
-	public Collection<UserComponent> getGroupUsers() {
-		return groupUsers;
 	}
 
 	@Override
@@ -63,31 +68,19 @@ public class UserComposite extends UserComponent {
 	}
 
 	@Override
-	public ArrayList<String> getFavoriteGenres() {
-		System.out.println("Géneros favoritos del grupo "+this.getName());
+	public Set<String> getFavoriteGenres() {
 		ArrayList<UserComponent> auxUser = new ArrayList<UserComponent>();
 		auxUser = this.getUser();
-		ArrayList<String> genres = new ArrayList<String>();
+		Set<String> genres = new HashSet<String>();
 		Set<String> favoriteGenres = new HashSet<String>(genres);
 		for (UserComponent user : auxUser) {
-			genres = user.getFavoriteGenres();
+			genres =  user.getFavoriteGenres();
 			favoriteGenres.addAll(genres);
 		}
-		System.out.println(favoriteGenres);
+		return  favoriteGenres;
+	}
 
-//			ArrayList<UserComponent> auxUser = new ArrayList<UserComponent>();
-//			System.out.println(this.groupUsers.get(i));
-//			for (int j = 0; j <= auxGenList.size(); j++) {			
-//				if (!auxGenList.get(j).toString().equals(this.genres.get(i).toString())) {
-//					isFinish = i + 1;
-//					if (isFinish == groupUsers.size()) {
-//						
-////					}
-//					this.genres.addAll(auxGenList);
-//					System.out.println("El genero "+ auxGenList);
-//				}
-//			}
-		
-		return this.genres;
+	public Collection<UserComponent> getGroupUsers() {
+		return groupUsers;
 	}
 }

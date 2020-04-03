@@ -24,7 +24,7 @@ public class Movie implements Iterator<Object> {
 	public int releaseYear;
 	public double average;
 
-	/*constructor*/
+	/* constructor */
 	public Movie() {
 		this.title = getTitle();
 		this.synopsis = getSynopsis();
@@ -35,58 +35,59 @@ public class Movie implements Iterator<Object> {
 		this.valuations = new HashMap<String, Integer>();
 		this.average = getAverage();
 	}
-	
+
 	public ArrayList<String> addActor(String a) {
 		this.actors.add(a);
 		return (ArrayList<String>) this.actors;
 	}
-	
+
 	public ArrayList<String> addDirector(String d) {
 		this.directors.add(d);
 		return (ArrayList<String>) this.directors;
 	}
-	
+
 	public ArrayList<String> addCategory(String c) {
 		this.categories.add(c);
 		return (ArrayList<String>) this.categories;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "Tittle = " + this.getTitle()+ "\nSynopsis = " + 
-				this.getSynopsis() + "\nActors = " + this.getActors()+ "\nDirectors = " + 
-				this.getDirectors() + "\nCategories = " + this.getCategories() + "\nValuations = " + 
-				this.getValuations() + "\nRelease Year = " + this.getReleaseYear() + "\nAverage = " + this.getAverage()+
-				"\n-------------------------------------------------------------------\n";
+		return "Tittle = " + this.getTitle() + "\nSynopsis = " + this.getSynopsis() + "\nActors = " + this.getActors()
+				+ "\nDirectors = " + this.getDirectors() + "\nCategories = " + this.getCategories() + "\nValuations = "
+				+ this.getValuations() + "\nRelease Year = " + this.getReleaseYear() + "\nAverage = "
+				+ this.getAverage() + "\n-------------------------------------------------------------------\n";
 	}
-	
-	
-	/*Getters & Setters*/
+
+	/* Getters & Setters */
 	public void printValuations() {
 		Iterator<String> iteradorValuations = valuations.keySet().iterator();
-		while (iteradorValuations.hasNext()){
+		int count=0;
+		while (iteradorValuations.hasNext()) {
 			String name = iteradorValuations.next();
 			int valuation = valuations.get(name);
-			System.out.print("\nEl usuario "+name+" valuo con "+valuation+" la pelicula "+this.getTitle());
+			System.out.print("\nEl usuario " + name + " valuo con " + valuation + " la pelicula " + this.getTitle());
+			count++;
 		}
+		System.out.print("Cantidad valuaciones "+count+"\n");
 	}
-	
+
 	public int getSumValuations() {
 		int sum = 0;
-		Iterator<Integer> iteradorValuations = valuations.values().iterator();		
-		while (iteradorValuations.hasNext()){
+		Iterator<Integer> iteradorValuations = valuations.values().iterator();
+		while (iteradorValuations.hasNext()) {
 			int valuation = iteradorValuations.next();
 			sum += valuation;
 		}
 		return sum;
 	}
-	
+
 	public double getAverage() {
 		double cant = this.valuations.size();
 		this.average = getSumValuations() / cant;
 		return average;
 	}
-	
+
 	public String getTitle() {
 		return title;
 	}
@@ -134,7 +135,7 @@ public class Movie implements Iterator<Object> {
 	public void setReleaseYear(int releaseYear) {
 		this.releaseYear = releaseYear;
 	}
-	
+
 	public Map<String, Integer> getValuations() {
 		return valuations;
 	}
@@ -142,7 +143,6 @@ public class Movie implements Iterator<Object> {
 	public void setValuations(Map<String, Integer> valuations) {
 		this.valuations = valuations;
 	}
-
 
 	public void setAverage(int average) {
 		this.average = average;

@@ -179,38 +179,44 @@ public class ClientSystemMovie {
 //		películas vistas por los usuarios y grupos de usuarios
 		marge.watchMovie(theIncrediblesMovie);
 		marge.watchMovie(toyStoryMovie);
-
 		lisa.watchMovie(theIncrediblesMovie);
 		bart.watchMovie(theIncrediblesMovie);
 		bart.watchMovie(toyStoryMovie);
 		maggie.watchMovie(theIncredibles2Movie);
 		maggie.watchMovie(toyStoryMovie);
-		simpsonFamily.watchMovie(toyStoryMovie);
-		simpsonBrothers.watchMovie(toyStoryMovie);
+		simpsonBrothers.watchMovie(upMovie);
+//		simpsonFamily.watchMovie(toyStoryMovie);
 //		simpsonFamily.seenMovies();
 //		lisa.seenMovies();
 //		maggie.seenMovies();
 
+
 //		puntuaciones dadas por los usuarios	
-		simpsonFamily.valueMovie(toyStoryMovie, 4);
-		simpsonBrothers.valueMovie(theIncrediblesMovie, 5);
+//		simpsonFamily.valueMovie(toyStoryMovie, 4);
+		simpsonBrothers.valueMovie(upMovie, 5);
+		lisa.valueMovie(theIncrediblesMovie, 5);
 		bart.valueMovie(theIncrediblesMovie, 2);
 		homer.valueMovie(theIncrediblesMovie, 4);
-		marge.valueMovie(theIncrediblesMovie, 2);
+		marge.valueMovie(theIncredibles2Movie, 5);
 		maggie.valueMovie(toyStoryMovie, 1);
-		bart.valueMovie(toyStoryMovie, 4);
 		
 		//puntuaciones obtenidas por película
-//		theIncrediblesMovie.printValuations();
+		theIncrediblesMovie.printValuations();
 		
 //		generos favotiros de los grupos
-		System.out.println(homer.getFavoriteGenres());
+		System.out.println("\nGéneros favoritos de "+homer.getName()+" son\n"+homer.getFavoriteGenres());
 
 //		listar peliculas vistas por cada usuario
 		marge.seenMovies();
-		simpsonBrothers.seenMovies();
-		System.out.println(simpsonFamily.getFavoriteGenres());
+		bart.seenMovies();
+		lisa.seenMovies();
+		maggie.seenMovies();
 
+		simpsonBrothers.seenMovies();
+		System.out.println("\nGéneros favoritos de "+maggie.getName()+" son\n"+maggie.getFavoriteGenres());
+
+		System.out.println("\nGéneros favoritos de "+simpsonFamily.getName()+" son\n"+simpsonFamily.getFavoriteGenres());
+		System.out.println("\nTítulo Película: "+toyStoryMovie.getTitle()+"Promedio valuaciones: "+toyStoryMovie.getAverage());
 	}
 
 }
