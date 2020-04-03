@@ -26,19 +26,46 @@ public class ClientSystemMovie {
 		// carga datos de usuarios
 		homer.setName("Homero");
 		homer.setAge(45);
-		homer.addGenres("Comedia");
-		System.out.println(homer.GetfavoriteGenres());
+		homer.addGenres("Musical");
+		homer.addGenres("Infantil");
+		homer.addGenres("Acción");
+//		System.out.println(homer.getFavoriteGenres());
+		
 		marge.setName("Marge");
 		marge.setAge(40);
+		marge.addGenres("Infantil");
+		marge.addGenres("Romántico");
+		marge.addGenres("Musical");
+		marge.addGenres("Aventura");
+//		System.out.println(marge.getFavoriteGenres());
+
 		lisa.setName("Lisa");
 		lisa.setAge(10);
+		lisa.addGenres("Romántico");
+		lisa.addGenres("Musical");
+		lisa.addGenres("Infantil");
+		lisa.addGenres("Aventura");
+//		System.out.println(lisa.getFavoriteGenres());
+
 		bart.setName("Bart");
 		bart.setAge(8);
+		bart.addGenres("Musical");
+		bart.addGenres("Infantil");
+		bart.addGenres("Aventura");
+		bart.addGenres("Acción");
+//		System.out.println(bart.getFavoriteGenres());
+		
 		maggie.setName("Maggie");
 		maggie.setAge(2);
-		simpsonBrothers.setName("Hermanos Simpson");
-		simpsonFamily.setName("Familia Simpson");
+		maggie.addGenres("Musical");
+		maggie.addGenres("Infantil");
+		maggie.addGenres("Aventura");
+//		System.out.println(maggie.getFavoriteGenres());
 
+		
+		simpsonBrothers.setName("Hermanos Simpson");
+		
+		simpsonFamily.setName("Familia Simpson");
 
 		/*carga datos de película 1*/
 		upMovie.setTittle("Up : una aventura de altura\n");
@@ -151,6 +178,8 @@ public class ClientSystemMovie {
 		
 //		películas vistas por los usuarios y grupos de usuarios
 		marge.watchMovie(theIncrediblesMovie);
+		marge.watchMovie(toyStoryMovie);
+
 		lisa.watchMovie(theIncrediblesMovie);
 		bart.watchMovie(theIncrediblesMovie);
 		bart.watchMovie(toyStoryMovie);
@@ -158,10 +187,9 @@ public class ClientSystemMovie {
 		maggie.watchMovie(toyStoryMovie);
 		simpsonFamily.watchMovie(toyStoryMovie);
 		simpsonBrothers.watchMovie(toyStoryMovie);
-		simpsonBrothers.seenMovies();
-		simpsonFamily.seenMovies();
-		lisa.seenMovies();
-		maggie.seenMovies();
+//		simpsonFamily.seenMovies();
+//		lisa.seenMovies();
+//		maggie.seenMovies();
 
 //		puntuaciones dadas por los usuarios	
 		simpsonFamily.valueMovie(toyStoryMovie, 4);
@@ -173,17 +201,15 @@ public class ClientSystemMovie {
 		bart.valueMovie(toyStoryMovie, 4);
 		
 		//puntuaciones obtenidas por película
-		theIncrediblesMovie.printValuations();
-//		
-//		//datos de los usuarios registrados
-//		System.out.println(homer.toString());
-//		System.out.println(marge.toString());
-//		System.out.println(lisa.toString());
-//		System.out.println(bart.toString());
-//		System.out.println(maggie.toString());
+//		theIncrediblesMovie.printValuations();
 		
+//		generos favotiros de los grupos
+		System.out.println(homer.getFavoriteGenres());
+
 //		listar peliculas vistas por cada usuario
-//		System.out.println(marge.getSeenMovies());
+		marge.seenMovies();
+		simpsonBrothers.seenMovies();
+		System.out.println(simpsonFamily.getFavoriteGenres());
 
 	}
 

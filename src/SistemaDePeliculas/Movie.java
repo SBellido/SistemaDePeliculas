@@ -15,7 +15,7 @@ import java.util.Map;
  */
 public class Movie implements Iterator<Object> {
 
-	public String tittle;
+	public String title;
 	public String synopsis;
 	public Collection<String> actors;
 	public Collection<String> directors;
@@ -26,7 +26,7 @@ public class Movie implements Iterator<Object> {
 
 	/*constructor*/
 	public Movie() {
-		this.tittle = getTittle();
+		this.title = getTitle();
 		this.synopsis = getSynopsis();
 		this.releaseYear = getReleaseYear();
 		this.actors = new ArrayList<String>();
@@ -36,15 +36,16 @@ public class Movie implements Iterator<Object> {
 		this.average = getAverage();
 	}
 	
-
 	public ArrayList<String> addActor(String a) {
 		this.actors.add(a);
 		return (ArrayList<String>) this.actors;
 	}
+	
 	public ArrayList<String> addDirector(String d) {
 		this.directors.add(d);
 		return (ArrayList<String>) this.directors;
 	}
+	
 	public ArrayList<String> addCategory(String c) {
 		this.categories.add(c);
 		return (ArrayList<String>) this.categories;
@@ -52,10 +53,10 @@ public class Movie implements Iterator<Object> {
 	
 	@Override
 	public String toString() {
-		return "Tittle = " + tittle + "\nSynopsis = " + 
-				synopsis + "\nActors = " + actors + "\nDirectors = " + 
-				directors + "\nCategories = " + categories + "\nValuations = " + 
-				valuations + "\nRelease Year = " + releaseYear + "\nAverage = " + average+
+		return "Tittle = " + this.getTitle()+ "\nSynopsis = " + 
+				this.getSynopsis() + "\nActors = " + this.getActors()+ "\nDirectors = " + 
+				this.getDirectors() + "\nCategories = " + this.getCategories() + "\nValuations = " + 
+				this.getValuations() + "\nRelease Year = " + this.getReleaseYear() + "\nAverage = " + this.getAverage()+
 				"\n-------------------------------------------------------------------\n";
 	}
 	
@@ -66,7 +67,7 @@ public class Movie implements Iterator<Object> {
 		while (iteradorValuations.hasNext()){
 			String name = iteradorValuations.next();
 			int valuation = valuations.get(name);
-			System.out.print("\nEl usuario "+name+" valuo con "+valuation+" la pelicula "+this.getTittle());
+			System.out.print("\nEl usuario "+name+" valuo con "+valuation+" la pelicula "+this.getTitle());
 		}
 	}
 	
@@ -86,12 +87,12 @@ public class Movie implements Iterator<Object> {
 		return average;
 	}
 	
-	public String getTittle() {
-		return tittle;
+	public String getTitle() {
+		return title;
 	}
 
-	public void setTittle(String tittle) {
-		this.tittle = tittle;
+	public void setTittle(String title) {
+		this.title = title;
 	}
 
 	public String getSynopsis() {
@@ -147,19 +148,16 @@ public class Movie implements Iterator<Object> {
 		this.average = average;
 	}
 
-
 	@Override
 	public boolean hasNext() {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
-
 	@Override
 	public Object next() {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 
 }

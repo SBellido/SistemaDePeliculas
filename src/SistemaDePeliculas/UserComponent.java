@@ -5,8 +5,6 @@ package SistemaDePeliculas;
 
 import java.util.Collection;
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 
 /**
  * @author sebst
@@ -17,18 +15,32 @@ public abstract class UserComponent implements Comparable<UserComponent> {
 	protected int age;
 	protected ArrayList<Movie> seenMovies;
 	protected ArrayList<String> genres;
-	
+
 	public UserComponent() {
 		super();
 		this.name = getName();
 		this.seenMovies = new ArrayList<Movie>();
 		this.genres = new ArrayList<String>();
+
 	}
 
 	protected abstract ArrayList<UserComponent> getUser();
+	public abstract String toString();
+	public abstract ArrayList<String> getFavoriteGenres();
 	
-	protected abstract ArrayList<String> GetfavoriteGenres();
-	protected abstract void addGenres(String gender);
+	
+	public void addGenres(String genres) {
+		for (int i = 0; i <= this.genres.size(); i++) {
+			if(!this.genres.contains(genres)) {
+				this.genres.add(genres);
+				System.out.println("El género "+genres+" fue agregado a la lista de géneros favoritos de "+ this.getName());
+				break;
+			} else {
+				System.out.println("El género "+genres+" ya existe en la lista de "+this.getName());
+				break;
+			}
+		}
+	}
 	
 	public int compareTo(UserComponent user) {
 		if (this.getName().equals(user.getName())) {
@@ -37,13 +49,13 @@ public abstract class UserComponent implements Comparable<UserComponent> {
 			return 1;
 		}
 	}
-
+	
 	public void seenMovies() {
 		System.out.println("\nPelículas vistas por " + this.getName());
-		Iterator<Movie> iteradorMovies = seenMovies.iterator();
-		if (iteradorMovies.hasNext()) {
-			System.out.println(this.getSeenMovies());
-		}
+		for (Movie movie : this.seenMovies) {
+			String title = movie.getTitle();
+			System.out.print("- "+title);
+			}
 	}
 
 	public void valueMovie(Movie movie, int value) {
@@ -51,13 +63,13 @@ public abstract class UserComponent implements Comparable<UserComponent> {
 			movie.getValuations().put(this.getName(), value);
 			movie.getAverage();
 			System.out.print(this.getName() + ", su valuación de " + value + " fue cargada con éxito para el film "
-					+ movie.getTittle());
+					+ movie.getTitle());
 		} else {
-			System.out.println(this.getName() + " no ha visto " + movie.getTittle()
+			System.out.println(this.getName() + " no ha visto " + movie.getTitle()
 					+ " o ha cargado mal su valoración. La valoración debe ser 1, 2, 3, 4 o 5\n");
 		}
 	}
-	
+
 	public int getAge() {
 		return age;
 	}
@@ -65,11 +77,7 @@ public abstract class UserComponent implements Comparable<UserComponent> {
 	public void setAge(int age) {
 		this.age = age;
 	}
-
-	public void setSeenMovies(List<Movie> seenMovies) {
-		this.seenMovies = seenMovies;
-	}
-
+	
 	public void watchMovie(Movie movie) {
 		this.seenMovies.add(movie);
 	}
@@ -120,7 +128,5 @@ public abstract class UserComponent implements Comparable<UserComponent> {
 			return false;
 		return true;
 	}
-
-
 
 }
