@@ -30,6 +30,7 @@ public abstract class UserComponent implements Comparable<UserComponent> {
 	public abstract String toString();
 	public abstract Set<String> getFavoriteGenres();
 	public abstract void watchMovie(Movie movie);
+	public abstract Set<Movie> recommendMovies();
 	
 	public void addGenres(String genres) {
 		for (int i = 0; i <= this.genres.size(); i++) {

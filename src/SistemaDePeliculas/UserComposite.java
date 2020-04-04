@@ -83,4 +83,10 @@ public class UserComposite extends UserComponent {
 	public Collection<UserComponent> getGroupUsers() {
 		return groupUsers;
 	}
+
+	@Override
+	public Set<Movie> recommendMovies() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

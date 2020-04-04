@@ -8,6 +8,8 @@ public class ClientSystemMovie {
 
 	public static void main(String[] args) {
 		/*instancia de clases*/
+		MovieLibrary movieLibrary = new MovieLibrary();
+		
 		UserComponent homer = new UserSingle();
 		UserComponent marge = new UserSingle();
 		UserComponent lisa = new UserSingle();
@@ -167,7 +169,15 @@ public class ClientSystemMovie {
 		monsterIncMovie.addCategory("Aventura");
 		monsterIncMovie.addCategory("Acción");
 		
-		//carga agrega usuarios a un grupo
+//		agrega películas a la librería
+		movieLibrary.addMovie(upMovie);
+		movieLibrary.addMovie(simpsonMovie);
+		movieLibrary.addMovie(monsterIncMovie);
+		movieLibrary.addMovie(theIncrediblesMovie);
+		movieLibrary.addMovie(theIncredibles2Movie);
+		movieLibrary.addMovie(toyStoryMovie);
+		
+//		carga agrega usuarios a un grupo
 		simpsonBrothers.addToGroup(lisa.getUser());
 		simpsonBrothers.addToGroup(maggie.getUser());	
 		simpsonBrothers.addToGroup(bart.getUser());
@@ -217,6 +227,8 @@ public class ClientSystemMovie {
 
 		System.out.println("\nGéneros favoritos de "+simpsonFamily.getName()+" son\n"+simpsonFamily.getFavoriteGenres());
 		System.out.println("\nTítulo Película: "+toyStoryMovie.getTitle()+"Promedio valuaciones: "+toyStoryMovie.getAverage());
+		System.out.println("\nLas películas cargadas son \n"+movieLibrary.getFilmLibrary());
+		System.out.println("\nLa película mejor valuada es "+movieLibrary.mostValue());
 	}
 
 }

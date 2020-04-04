@@ -1,6 +1,7 @@
 package SistemaDePeliculas;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Set;
 
 public class UserSingle extends UserComponent {
@@ -34,6 +35,18 @@ public class UserSingle extends UserComponent {
 		return "Nombre: "+super.getName()+"\nEdad: " + this.getAge()	+ 
 				"\nGéneros preferidos: " + super.genres + 
 				"\nPelículas vistas: " + super.getSeenMovies();
+	}
+	
+	
+	@Override
+	public Set<Movie> recommendMovies() {
+		Set<Movie> recommendMovies = new HashSet<Movie>();	
+		
+//		for (String genres : super.genres) {
+//			recommendMovies.add(genres);
+//		}
+		
+		return recommendMovies;
 	}
 
 	@Override
