@@ -3,23 +3,21 @@
  */
 package SistemaDePeliculas;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-
+import java.util.ArrayList;
 /**
  * @author sebst
  *
  */
-public class Movie implements Iterator<Object> {
+public class Movie {
 
 	public String title;
 	public String synopsis;
-	public Collection<String> actors;
-	public Collection<String> directors;
-	public Collection<String> categories;
+	public ArrayList<String> actors;
+	public ArrayList<String> directors;
+	public ArrayList<String> categories;
 	public Map<String, Integer> valuations;
 	public int releaseYear;
 	public double average;
@@ -50,7 +48,17 @@ public class Movie implements Iterator<Object> {
 		this.categories.add(c);
 		return (ArrayList<String>) this.categories;
 	}
+	
 
+//		@Override
+//		public int compare(Movie m1, Movie m2) {
+//			if (m2.getAverage() < m1.getAverage()) {
+//				return 0;
+//			} else if (m2.getAverage() > m1.getAverage()) {
+//				return 1;	
+//			} 
+//			return -1;		
+//		}
 	@Override
 	public String toString() {
 		return "Tittle = " + this.getTitle() + "\nSynopsis = " + this.getSynopsis() + "\nActors = " + this.getActors()
@@ -62,14 +70,14 @@ public class Movie implements Iterator<Object> {
 	/* Getters & Setters */
 	public void printValuations() {
 		Iterator<String> iteradorValuations = valuations.keySet().iterator();
-		int count=0;
+		int count = 0;
 		while (iteradorValuations.hasNext()) {
 			String name = iteradorValuations.next();
 			int valuation = valuations.get(name);
 			System.out.print("\nEl usuario " + name + " valuo con " + valuation + " la pelicula " + this.getTitle());
 			count++;
 		}
-		System.out.print("Cantidad valuaciones "+count+"\n");
+		System.out.print("Cantidad valuaciones " + count + "\n");
 	}
 
 	public int getSumValuations() {
@@ -88,6 +96,8 @@ public class Movie implements Iterator<Object> {
 		return average;
 	}
 
+	
+
 	public String getTitle() {
 		return title;
 	}
@@ -104,27 +114,27 @@ public class Movie implements Iterator<Object> {
 		this.synopsis = synopsis;
 	}
 
-	public Collection<String> getActors() {
+	public ArrayList<String> getActors() {
 		return actors;
 	}
 
-	public void setActors(Collection<String> actors) {
+	public void setActors(ArrayList<String> actors) {
 		this.actors = actors;
 	}
 
-	public Collection<String> getDirectors() {
+	public ArrayList<String> getDirectors() {
 		return directors;
 	}
 
-	public void setDirectors(Collection<String> directors) {
+	public void setDirectors(ArrayList<String> directors) {
 		this.directors = directors;
 	}
 
-	public Collection<String> getCategories() {
+	public ArrayList<String> getCategories() {
 		return categories;
 	}
 
-	public void setCategories(Collection<String> categories) {
+	public void setCategories(ArrayList<String> categories) {
 		this.categories = categories;
 	}
 
@@ -148,16 +158,11 @@ public class Movie implements Iterator<Object> {
 		this.average = average;
 	}
 
-	@Override
-	public boolean hasNext() {
-		// TODO Auto-generated method stub
-		return false;
-	}
 
-	@Override
-	public Object next() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
+
+
+	
+
 
 }

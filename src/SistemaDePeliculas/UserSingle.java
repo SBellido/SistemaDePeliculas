@@ -36,18 +36,6 @@ public class UserSingle extends UserComponent {
 				"\nGéneros preferidos: " + super.genres + 
 				"\nPelículas vistas: " + super.getSeenMovies();
 	}
-	
-	
-	@Override
-	public Set<Movie> recommendMovies() {
-		Set<Movie> recommendMovies = new HashSet<Movie>();	
-		
-//		for (String genres : super.genres) {
-//			recommendMovies.add(genres);
-//		}
-		
-		return recommendMovies;
-	}
 
 	@Override
 	public int hashCode() {
