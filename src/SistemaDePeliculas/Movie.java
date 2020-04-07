@@ -13,14 +13,14 @@ import java.util.ArrayList;
  */
 public class Movie {
 
-	public String title;
-	public String synopsis;
-	public ArrayList<String> actors;
-	public ArrayList<String> directors;
-	public ArrayList<String> categories;
-	public Map<String, Integer> valuations;
-	public int releaseYear;
-	public double average;
+	private String title;
+	private String synopsis;
+	private ArrayList<String> actors;
+	private ArrayList<String> directors;
+	private ArrayList<String> categories;
+	private Map<String, Integer> valuations;
+	private int releaseYear;
+	private double average;
 
 	/* constructor */
 	public Movie() {

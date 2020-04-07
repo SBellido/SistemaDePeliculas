@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class MovieLibrary {
-	ArrayList<Movie> movieLibrary;
+	private ArrayList<Movie> movieLibrary;
 
 	public MovieLibrary() {
 		this.movieLibrary = new ArrayList<Movie>();
