@@ -2,7 +2,6 @@ package SistemaDePeliculas;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 
 public class MovieLibrary {
 	ArrayList<Movie> movieLibrary;
@@ -11,67 +10,29 @@ public class MovieLibrary {
 		this.movieLibrary = new ArrayList<Movie>();
 	}
 
-	
-	
-	public ArrayList<Movie> recommendMovies(UserComponent user) {
+	public ArrayList<Movie> recommendMovies(UserComponent user, int cant) {
 		ArrayList<Movie> recommendMovies = new ArrayList<Movie>();
 		ArrayList<Movie> seenMovies = user.getSeenMovies();
+		this.orderMostValue(seenMovies, cant);
 		for (Movie movie : movieLibrary) {
 			if (!seenMovies.contains(movie)) {
 				recommendMovies.add(movie);
 			}
-			Collections.sort(recommendMovies, new OrderByAverage());
-//			if()
-//			recommendMovies.sort(Collections.reverseOrder());
 		}
 		return recommendMovies;
 	}
-	
-	
-//	public List<Movie> mostValue(int cant) {
-//		double bestAverage = 0;
-//		List<Movie> listMoreValue = new ArrayList<Movie>();
-//		Movie moreValue = new Movie();
-//		for (Movie movie : this.movieLibrary) {
-//				if(listMoreValue.size() < cant) {
-//					listMoreValue.add(movie);
-//				}
-//			}
-//		
-//		return listMoreValue;
-//	}
-	
-	public List<Movie> mostValue(int cant) {
-		double bestAverage = 0;
-		List<Movie> listMoreValue = new ArrayList<Movie>();
-		Movie moreValue = new Movie();
+
+	private ArrayList<Movie> orderMostValue(ArrayList<Movie> listMoreValue, int cant) {
+		Collections.sort(this.movieLibrary, new OrderByAverage());
 		for (Movie movie : this.movieLibrary) {
-			double auxAverage = movie.getAverage();
-			if (auxAverage >= bestAverage) {
-				bestAverage = movie.getAverage();
-				moreValue = movie;
-				if(listMoreValue.size() < cant) {
-//					this.compare(movie, moreValue);
-					listMoreValue.add(moreValue);
-				}
+			if (listMoreValue.size() < cant) {
+				listMoreValue.add(movie);
+			} else {
+				break;
 			}
 		}
 		return listMoreValue;
 	}
-//	public List<Movie> mostValue(int cant) {
-//		List<Movie> listMoreValue = new ArrayList<Movie>();
-//		Movie moreValue = new Movie();
-//		for (Movie movie : this.movieLibrary) {
-//			int value = movie.compareTo(moreValue);
-//			if (listMoreValue.size() < cant) {
-//				moreValue = movie;
-//				if (value == 1 || value == 0) {
-//					listMoreValue.add(movie);
-//				}
-//			}
-//		}
-//		return listMoreValue;
-//	}
 
 	public void addMovie(Movie movie) {
 		movieLibrary.add(movie);
@@ -85,5 +46,4 @@ public class MovieLibrary {
 		this.movieLibrary = filmLibrary;
 	}
 
-	
 }

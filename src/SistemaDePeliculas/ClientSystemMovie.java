@@ -193,6 +193,10 @@ public class ClientSystemMovie {
 		lisa.watchMovie(theIncrediblesMovie);
 		lisa.watchMovie(monsterIncMovie);
 		lisa.watchMovie(simpsonMovie);
+		homer.watchMovie(simpsonMovie);
+		homer.watchMovie(upMovie);
+		homer.watchMovie(theIncrediblesMovie);
+		homer.watchMovie(theIncredibles2Movie);
 
 		bart.watchMovie(theIncrediblesMovie);
 		bart.watchMovie(toyStoryMovie);
@@ -210,11 +214,11 @@ public class ClientSystemMovie {
 //		puntuaciones dadas por los usuarios	
 //		simpsonFamily.valueMovie(toyStoryMovie, 4);
 		simpsonBrothers.valueMovie(upMovie, 2);
-		lisa.valueMovie(theIncrediblesMovie, 2);
+		lisa.valueMovie(theIncrediblesMovie, 4);
 		lisa.valueMovie(simpsonMovie, 5);
-		lisa.valueMovie(monsterIncMovie, 3);
+		lisa.valueMovie(monsterIncMovie, 4);
 
-		bart.valueMovie(theIncrediblesMovie, 2);
+		bart.valueMovie(theIncrediblesMovie, 4);
 		homer.valueMovie(theIncrediblesMovie, 4);
 		marge.valueMovie(theIncredibles2Movie, 5);
 		maggie.valueMovie(toyStoryMovie, 1);
@@ -254,9 +258,12 @@ public class ClientSystemMovie {
 //		System.out.println("\nGéneros favoritos de "+simpsonFamily.getName()+" son\n"+simpsonFamily.getFavoriteGenres());
 //		System.out.println("\nTítulo Película: "+toyStoryMovie.getTitle()+"Promedio valuaciones: "+toyStoryMovie.getAverage());
 //		System.out.println("\nLas películas cargadas son \n"+movieLibrary.getFilmLibrary());
-//		System.out.println("\nLas K películas mejor valuadas son "+movieLibrary.mostValue(2));
-		System.out.println("Películas recomendadas para " + simpsonBrothers.getName() + " son "
-				+ movieLibrary.recommendMovies(simpsonBrothers));
+//		System.out.println("Películas recomendadas para " + 
+//				simpsonBrothers.getName() + " son "+ 
+//				movieLibrary.recommendMovies(simpsonBrothers, 4));
+		homer.seenMovies();
+		System.out.println("Recomendaciones para Homero "+movieLibrary.recommendMovies(homer,3));
+
 	}
 
 }
