@@ -68,11 +68,11 @@ public class UserComposite extends UserComponent {
 	}
 
 	@Override
-	public Set<String> getFavoriteGenres() {
+	public ArrayList<String> getFavoriteGenres() {
 		ArrayList<UserComponent> auxUser = new ArrayList<UserComponent>();
 		auxUser = this.getUser();
-		Set<String> genres = new HashSet<String>();
-		Set<String> favoriteGenres = new HashSet<String>(genres);
+		ArrayList<String> genres = new ArrayList<String>();
+		ArrayList<String> favoriteGenres = new ArrayList<String>(genres);
 		for (UserComponent user : auxUser) {
 			genres =  user.getFavoriteGenres();
 			favoriteGenres.addAll(genres);

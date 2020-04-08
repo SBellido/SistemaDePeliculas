@@ -24,7 +24,7 @@ public class UserSingle extends UserComponent {
 	}
 	
 	@Override
-	public Set<String> getFavoriteGenres() {
+	public ArrayList<String> getFavoriteGenres() {
 //		System.out.println("Los géneros favoritos de "+this.getName()+" son ");
 		return this.genres;
 	}

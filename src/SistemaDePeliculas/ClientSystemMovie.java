@@ -261,8 +261,11 @@ public class ClientSystemMovie {
 //		System.out.println("Películas recomendadas para " + 
 //				simpsonBrothers.getName() + " son "+ 
 //				movieLibrary.recommendMovies(simpsonBrothers, 4));
+		
 		homer.seenMovies();
-		System.out.println("Recomendaciones para Homero "+movieLibrary.recommendMovies(homer,3));
+		System.out.println("Recomendaciones para  "+homer.getName()+" "+movieLibrary.recommendMovies(homer,3));
+		simpsonBrothers.seenMovies();
+		System.out.println("Recomendaciones para  "+simpsonBrothers.getName()+" "+movieLibrary.recommendMovies(simpsonBrothers,3));
 
 	}
 

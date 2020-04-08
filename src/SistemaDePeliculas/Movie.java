@@ -21,7 +21,7 @@ public class Movie {
 	private Map<String, Integer> valuations;
 	private int releaseYear;
 	private double average;
-
+	
 	/* constructor */
 	public Movie() {
 		this.title = getTitle();
@@ -47,18 +47,9 @@ public class Movie {
 	public ArrayList<String> addCategory(String c) {
 		this.categories.add(c);
 		return (ArrayList<String>) this.categories;
-	}
-	
+	}	
 
-//		@Override
-//		public int compare(Movie m1, Movie m2) {
-//			if (m2.getAverage() < m1.getAverage()) {
-//				return 0;
-//			} else if (m2.getAverage() > m1.getAverage()) {
-//				return 1;	
-//			} 
-//			return -1;		
-//		}
+
 	@Override
 	public String toString() {
 		return "Tittle = " + this.getTitle() + "\nSynopsis = " + this.getSynopsis() + "\nActors = " + this.getActors()

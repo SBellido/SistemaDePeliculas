@@ -3,9 +3,6 @@
  */
 package SistemaDePeliculas;
 
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.ArrayList;
 
 /**
@@ -16,19 +13,19 @@ public abstract class UserComponent implements Comparable<UserComponent> {
 	protected String name;
 	protected int age;
 	protected ArrayList<Movie> seenMovies;
-	protected Set<String> genres;
+	protected ArrayList<String> genres;
 
 	public UserComponent() {
 		super();
 		this.name = getName();
 		this.seenMovies = new ArrayList<Movie>();
-		this.genres = new HashSet<String>();
+		this.genres = new ArrayList<String>();
 
 	}
 
 	protected abstract ArrayList<UserComponent> getUser();
 	public abstract String toString();
-	public abstract Set<String> getFavoriteGenres();
+	public abstract ArrayList<String> getFavoriteGenres();
 	public abstract void watchMovie(Movie movie);
 	
 	public void addGenres(String genres) {
