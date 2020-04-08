@@ -5,17 +5,13 @@ import java.util.Collections;
 
 public class MovieLibrary {
 	private ArrayList<Movie> movieLibrary;
-	private StrategyFavoriteGenres StrategyFavoriteGenres;
-//	private atLeastOneFavoriteGenre leastOne;
-//	private allFavoriteGenres all;
+	private StrategyFavoriteGenres strategyFavoriteGenres;
 	
 	public MovieLibrary() {
 		this.movieLibrary = new ArrayList<Movie>();
-//		this.setLeastOne(new atLeastOneFavoriteGenre());
-//		this.setAll(new allFavoriteGenres());
 	}
 
-	public ArrayList<Movie> recommendMovies(UserComponent user, int cant) {
+	public ArrayList<Movie> recommendMovies(UserComponent user, int cant, StrategyFavoriteGenres favoriteGenres) {
 		ArrayList<Movie> recommendMovies = new ArrayList<Movie>();
 		ArrayList<Movie> seenMovies = user.getSeenMovies();
 		this.orderMostValue(this.movieLibrary);
@@ -24,7 +20,7 @@ public class MovieLibrary {
 				recommendMovies.add(movie);
 			}
 		}
-		StrategyFavoriteGenres.favoriteGenres(user, recommendMovies);
+		favoriteGenres.favoriteGenres(user, recommendMovies);
 		this.theBestKAverages(recommendMovies, cant);
 		return recommendMovies;
 	}
@@ -43,7 +39,6 @@ public class MovieLibrary {
 	
 	private ArrayList<Movie> orderMostValue(ArrayList<Movie> seenMovies) {
 		Collections.sort(seenMovies, new OrderByAverage());
-
 		return movieLibrary;
 	}
 
@@ -59,20 +54,12 @@ public class MovieLibrary {
 		this.movieLibrary = filmLibrary;
 	}
 
-//	public allFavoriteGenres getAll() {
-//		return all;
-//	}
-//
-//	public void setAll(allFavoriteGenres all) {
-//		this.all = all;
-//	}
-//
-//	public atLeastOneFavoriteGenre getLeastOne() {
-//		return leastOne;
-//	}
-//
-//	public void setLeastOne(atLeastOneFavoriteGenre leastOne) {
-//		this.leastOne = leastOne;
-//	}
+	public StrategyFavoriteGenres getStrategyFavoriteGenres() {
+		return strategyFavoriteGenres;
+	}
+
+	public void setStrategyFavoriteGenres(StrategyFavoriteGenres strategyFavoriteGenres) {
+		this.strategyFavoriteGenres = strategyFavoriteGenres;
+	}
 
 }
